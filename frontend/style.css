@@ -8,6 +8,7 @@ body {
 
 main.container {
   max-width: 640px;
+  background-color: aqua;
 }
 
 article {
