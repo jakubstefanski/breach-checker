@@ -44,3 +44,15 @@ read_only chroni przed zmianą plików w kontenerze, cap_drop przed posiadaniem 
 
 Zad. 3
 
+PS C:\Users\Jakub\mw-kurs\lab07-sekret> docker history sekret-demo:plik
+IMAGE          CREATED          CREATED BY                                      SIZE      COMMENT
+9fe8983326f9   15 seconds ago   RUN /bin/sh -c rm /tmp/klucz.txt # buildkit     8.19kB    buildkit.dockerfile.v0
+<missing>      15 seconds ago   RUN /bin/sh -c test -s /tmp/klucz.txt && ech…   4.1kB     buildkit.dockerfile.v0
+<missing>      15 seconds ago   COPY klucz.txt /tmp/klucz.txt # buildkit        12.3kB    buildkit.dockerfile.v0
+<missing>      13 days ago      CMD ["/bin/sh"]                                 0B        buildkit.dockerfile.v0
+<missing>      13 days ago      ADD alpine-minirootfs-3.22.8-x86_64.tar.gz /…   8.97MB    buildkit.dockerfile.v0
+
+tajny-klucz-jakubs
+
+
+Polecenie RUN rm usuwa plik jedynie w nowej warstwie obrazu, jednak fizycznie pozostaje on zapisany i możliwy do odzyskania z wcześniejszej warstwy historii, która została utworzona przez instrukcję COPY. Klucz należało przekazać bezpiecznie przy użyciu mechanizmu Docker BuildKit i montowania sekretów (opcja --secret oraz RUN --mount=type=secret...), dzięki czemu poufne dane są dostępne podczas budowania, ale nie zostają zapisane w warstwach ostatecznego obrazu.
