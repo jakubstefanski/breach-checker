@@ -43,8 +43,7 @@ jobs:
       - name: Publikacja
         run: docker push --all-tags "$IMAGE"
   verify:
-    needs: build-and-push
-    needs: build-frontend
+    needs: build-and-push & build-frontend
     runs-on: ubuntu-24.04
     permissions:
       contents: read
