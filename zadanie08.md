@@ -11,7 +11,7 @@ W tej wersji pipeline'u plik docker-compose.ci.yml nadpisuje obrazy dla obu usł
 
 Zad. 2
 
-Nieudane uruchomienie: <WKLEJ_LINK_DO_CZERWONEGO_URUCHOMIENIA_ACTIONS>
-Kolejne, zielone uruchomienie: <WKLEJ_LINK_DO_ZIELONEGO_URUCHOMIENIA_ACTIONS>
+Nieudane uruchomienie: 
+Kolejne, zielone uruchomienie: 
 
-Po nieudanym uruchomieniu tag latest backendu nadal wskazywał na poprzedni, sprawdzony i działający obraz z wcześniejszego zielonego uruchomienia, ponieważ job promote został pominięty, a zepsuty obraz został opublikowany wyłącznie pod tagiem skrótu commita. Ma to kluczowe znaczenie dla kogoś, kto pobiera obraz bez podawania tagu (Docker domyślnie pobiera wtedy `:latest`), ponieważ chroni przed przypadkowym pobraniem i uruchomieniem niesprawnego obrazu, który nie przeszedł weryfikacji.
+Po nieudanym uruchomieniu tag latest backendu nadal wskazywał na poprzedni, sprawdzony i działający obraz z wcześniejszego zielonego uruchomienia, ponieważ job promote został pominięty, a zepsuty obraz został opublikowany wyłącznie pod tagiem skrótu commita. Ma to kluczowe znaczenie dla kogoś, kto pobiera obraz bez podawania tagu, ponieważ chroni przed przypadkowym pobraniem i uruchomieniem niesprawnego obrazu, który nie przeszedł weryfikacji.
