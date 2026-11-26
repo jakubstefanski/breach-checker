@@ -26,6 +26,9 @@ jobs:
       - name: Logi przy błędzie
         if: failure()
         run: docker compose logs
+      - name: Uruchom backend (konfiguracja dev), bazę, cache i usługę log
+        run: docker compose up -d --build --wait backend log redis
+
   build-and-push:
     needs: test
     runs-on: ubuntu-24.04
